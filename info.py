@@ -15,6 +15,11 @@ W = '\033[97m' # White
 BOLD = '\033[1m'
 RESET = '\033[0m'
 
+# Real-like Browser User-Agent to bypass 403 Forbidden
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36'
+}
+
 def clear():
     os.system('clear')
 
@@ -41,7 +46,7 @@ def temp_mail():
     print(f"{C}[+] Temporary Mail Generator{RESET}\n")
     try:
         print(f"{Y}[*] Generating temporary email...{RESET}")
-        req = Request("https://www.1secmail.com/api/v1/?action=genEmailAddresses&count=1", headers={'User-Agent': 'Mozilla'})
+        req = Request("https://www.1secmail.com/api/v1/?action=genEmailAddresses&count=1", headers=HEADERS)
         email = json.loads(urlopen(req, timeout=7).read().decode('utf-8'))[0]
         name, domain = email.split('@')
         
@@ -56,7 +61,7 @@ def temp_mail():
             if opt == '1':
                 print(f"\n{C}[*] Checking mailbox...{RESET}")
                 chk_url = f"https://www.1secmail.com/api/v1/?action=getMessages&login={name}&domain={domain}"
-                req_mail = Request(chk_url, headers={'User-Agent': 'Mozilla'})
+                req_mail = Request(chk_url, headers=HEADERS)
                 mails = json.loads(urlopen(req_mail, timeout=7).read().decode('utf-8'))
                 
                 if not mails:
@@ -84,7 +89,8 @@ def ip_checker():
     target_ip = input(f"{Y}Enter IP Address (Leave blank for your own IP): {W}").strip()
     try:
         url = f"http://ip-api.com/json/{target_ip}"
-        data = json.loads(urlopen(url, timeout=7).read().decode('utf-8'))
+        req = Request(url, headers=HEADERS)
+        data = json.loads(urlopen(req, timeout=7).read().decode('utf-8'))
         
         if data['status'] == 'success':
             print(f"\n{G}[✓] IP Details Found:{RESET}")
@@ -139,7 +145,7 @@ def tg_messenger():
             import urllib.parse
             safe_text = urllib.parse.quote(text)
             url = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={safe_text}"
-            req = Request(url, headers={'User-Agent': 'Mozilla'})
+            req = Request(url, headers=HEADERS)
             urlopen(req, timeout=7)
             print(f"\n{G}[✓] Message successfully sent to your Telegram Bot!{RESET}")
         except Exception as e:
