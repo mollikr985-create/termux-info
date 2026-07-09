@@ -1,22 +1,34 @@
-# Nexus Multi-Tool Kit
+# 🚀 Nexus Advanced Utility Kit (নেক্সাস মাল্টি-টুল কিট)
 
-An advanced and interactive Termux tool built with Python. It features a cyberpunk style dashboard with multiple utility features.
+এটি টার্মাক্স (Termux) ব্যবহারকারীদের জন্য পাইথন (Python) দিয়ে তৈরি একটি প্রফেশনাল এবং ইন্টারঅ্যাক্টিভ অল-ইন-ওয়ান ইউটিলিটি টুল। সাইবারপাঙ্ক ডিজাইনের এই টুলের মাধ্যমে কোনো অতিরিক্ত থার্ড-পার্টি লাইব্রেরি ইনস্টল করা ছাড়াই সরাসরি টার্মিনাল থেকে বিভিন্ন গুরুত্বপূর্ণ কাজ করা সম্ভব।
 
-## Features
+---
 
-* **System & IP Finder:** Check OS details and fetch public IP.
-* **Website Status Checker:** Verify if a website is online or offline.
-* **Secure Password Generator:** Generate strong random passwords instantly.
-* **Telegram Alert Tester:** Test Telegram Bot API notifications directly from the terminal.
+## 🌟 মূল ফিচারসমূহ (Features)
 
-## Installation
+১. **Temp Mail Generator (সাময়িক ইমেইল):** সরাসরি টার্মাক্স থেকেই একটি সাময়িক বা ওয়ান-টাইম (Disposable) মেইল আইডি তৈরি করতে পারবেন। একই সাথে সেই মেইলের ইনবক্স রিফ্রেশ করে ভেরিফিকেশন কোড বা মেসেজ দেখতে পারবেন।
+২. **IP Address Checker (আইপি ট্র্যাকার):** যেকোনো আইপি অ্যাড্রেস ইনপুট দিয়ে সেটির দেশ, শহর, অঞ্চল, জিপ কোড এবং ইন্টারনেট সার্ভিস প্রোভাইডার (ISP) এর বিস্তারিত তথ্য বের করতে পারবেন।
+৩. **Website Domain Lookup (ডোমেন সন্ধান):** যেকোনো লাইভ ওয়েবসাইটের আসল আইপি অ্যাড্রেস (DNS Lookup) এক ক্লিকে বের করতে পারবেন।
+৪. **Telegram Messenger (টেলিগ্রাম মেসেঞ্জার):** আপনার টেলিগ্রাম বটের টোকেন এবং চ্যাট আইডি ব্যবহার করে সরাসরি টার্মিনাল থেকে নিজের বোটে বা গ্রুপে যেকোনো কাস্টম মেসেজ পাঠাতে পারবেন।
 
-* `pkg install python`
-* `pkg install git`
-* `git clone https://github.com/mollikr985-create/termux-info.git`
-* `cd termux-info`
+---
 
-## Usage
+## 🛠️ ইনস্টলেশন গাইড (Installation Guide)
 
-Type command to run the tool:
-`python info.py`
+টার্মাক্সে এই টুলটি প্রথমবার ইনস্টল এবং রান করার জন্য নিচের কমান্ডগুলো একে একে কপি করে আপনার টার্মাক্সে পেস্ট করুন:
+
+```bash
+# ১. টার্মাক্স রিপোজিটরি আপডেট এবং আপগ্রেড করুন
+pkg update && pkg upgrade -y
+
+# ২. প্রয়োজনীয় প্যাকেজ (Git এবং Python) ইনস্টল করুন
+pkg install git python -y
+
+# ৩. গিটহাব থেকে প্রজেক্টটি ক্লোন (ডাউনলোড) করুন
+git clone [https://github.com/mollikr985-create/termux-info.git](https://github.com/mollikr985-create/termux-info.git)
+
+# ৪. প্রজেক্ট ফোল্ডারে প্রবেশ করুন
+cd termux-info
+
+# 🚀 টুলটি রান করুন
+python info.py
