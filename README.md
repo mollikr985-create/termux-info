@@ -1,14 +1,22 @@
-# termux-info
-A simple Termux tool to display my profile info.
+# Nexus Multi-Tool Kit
 
+An advanced and interactive Termux tool built with Python. It features a cyberpunk style dashboard with multiple utility features.
 
+## Features
 
-How To Install 
+* **System & IP Finder:** Check OS details and fetch public IP.
+* **Website Status Checker:** Verify if a website is online or offline.
+* **Secure Password Generator:** Generate strong random passwords instantly.
+* **Telegram Alert Tester:** Test Telegram Bot API notifications directly from the terminal.
 
+## Installation
 
+* `pkg install python`
+* `pkg install git`
+* `git clone https://github.com/mollikr985-create/termux-info.git`
+* `cd termux-info`
 
-pkg update && pkg upgrade -y
-pkg install git python -y
-git clone https://github.com/mollikr985-create/termux-info.git
-cd termux-info
-python info.py
+## Usage
+
+Type command to run the tool:
+`python info.py`
