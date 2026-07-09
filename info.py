@@ -40,7 +40,7 @@ def temp_mail():
     banner()
     print(f"{C}[+] Temporary Mail Generator{RESET}\n")
     try:
-        print(f"{INFO} Generating temporary email...")
+        print(f"{Y}[*] Generating temporary email...{RESET}")
         req = Request("https://www.1secmail.com/api/v1/?action=genEmailAddresses&count=1", headers={'User-Agent': 'Mozilla'})
         email = json.loads(urlopen(req, timeout=7).read().decode('utf-8'))[0]
         name, domain = email.split('@')
@@ -60,16 +60,21 @@ def temp_mail():
                 mails = json.loads(urlopen(req_mail, timeout=7).read().decode('utf-8'))
                 
                 if not mails:
-                    print(f"{Y}[!] Mailbox is empty. No messages received yet.{RESET}")
+                    print(f"{R}[!] Mailbox is empty. No messages received yet.{RESET}")
                 else:
+                    print(f"\n{G}[✓] New Messages Found:{RESET}")
                     for m in mails:
-                        print(f"\n{G}From: {W}{m['from']}\n{G}Subject: {W}{m['subject']}\n{G}Date: {W}{m['date']}")
+                        print(f"\n{G}ID: {W}{m['id']}")
+                        print(f"{G}From: {W}{m['from']}")
+                        print(f"{G}Subject: {W}{m['subject']}")
+                        print(f"{G}Date: {W}{m['date']}")
                         print(f"{B}-----------------------------------------{RESET}")
                 input(f"\n{Y}Press Enter to continue...{RESET}")
             elif opt == '0':
                 break
     except Exception as e:
         print(f"{R}[✗] Error connecting to Temp Mail API.{RESET}")
+        print(f"{Y}Error Details: {e}{RESET}")
         input(f"\n{Y}Press Enter to go back...{RESET}")
 
 # --- FEATURE 2: IP CHECKER ---
@@ -102,7 +107,6 @@ def web_lookup():
     banner()
     print(f"{C}[+] Website Domain Lookup{RESET}\n")
     domain = input(f"{Y}Enter Website Domain (e.g., google.com): {W}").strip()
-    # Clean URL if user enters http/https
     if "://" in domain:
         domain = domain.split("://")[1]
     if "/" in domain:
@@ -124,7 +128,6 @@ def web_lookup():
 def tg_messenger():
     banner()
     print(f"{C}[+] Manual Telegram Bot Messenger{RESET}\n")
-    # আপনি চাইলে এখানে আপনার টোকেন আর চ্যাট আইডি সরাসরি ডিফল্ট হিসেবে বসিয়ে রাখতে পারেন
     token = "7262426918:AAETLOfhl8Y3zouo0z-nJ2XAijn4gGOsUa4"
     chat_id = "6459093455"
     
@@ -174,4 +177,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-                
+            
